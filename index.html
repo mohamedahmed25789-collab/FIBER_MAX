@@ -179,5 +179,30 @@ function order(packageName) {
   window.open(url, "_blank", "noopener");
 }
 </script>
+<!-- Google Ads: track phone-link clicks only -->
+<script>
+document.addEventListener('click', function (event) {
+  const link = event.target.closest && event.target.closest('a[href^="tel:"]');
+  if (!link || event.defaultPrevented || typeof gtag !== 'function') return;
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  let opened = false;
+  function openPhone() {
+    if (opened) return;
+    opened = true;
+    window.location.href = link.href;
+  }
+  setTimeout(openPhone, 1000);
+  try {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18503392152/2wSlCIORyJwdEJi3jfdE',
+      'event_callback': openPhone,
+      'event_timeout': 1000
+    });
+  } catch (error) {
+    openPhone();
+  }
+});
+</script>
 </body>
 </html>
