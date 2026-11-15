@@ -1,14 +1,12 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18503392152"></script>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MHW94DM3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'AW-18503392152');
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -178,31 +176,6 @@ function order(packageName) {
   setTimeout(() => toast.classList.remove("show"), 1800);
   window.open(url, "_blank", "noopener");
 }
-</script>
-<!-- Google Ads: track phone-link clicks only -->
-<script>
-document.addEventListener('click', function (event) {
-  const link = event.target.closest && event.target.closest('a[href^="tel:"]');
-  if (!link || event.defaultPrevented || typeof gtag !== 'function') return;
-  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  let opened = false;
-  function openPhone() {
-    if (opened) return;
-    opened = true;
-    window.location.href = link.href;
-  }
-  setTimeout(openPhone, 1000);
-  try {
-    gtag('event', 'conversion', {
-      'send_to': 'AW-18503392152/2wSlCIORyJwdEJi3jfdE',
-      'event_callback': openPhone,
-      'event_timeout': 1000
-    });
-  } catch (error) {
-    openPhone();
-  }
-});
 </script>
 </body>
 </html>
