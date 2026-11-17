@@ -2,11 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
 <!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MHW94DM3"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18503392152"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  gtag('config', 'AW-18503392152');
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,7 +124,7 @@
   <a class="cta-btn" href="tel:+966536824776">اتصل الآن</a>
 </div>
 
-<footer>© 2026 — فايبر ماكس، مندوب مستقل لطلبات الإنترنت المنزلي</footer>
+<footer>©️ 2026 — فايبر ماكس، مندوب مستقل لطلبات الإنترنت المنزلي</footer>
 
 <script>
 const service = document.getElementById('service');
@@ -151,6 +152,41 @@ buttons.forEach(button => button.addEventListener('click', () => {
 filters.hidden = false;
 document.querySelectorAll('.nav a[href="#fiber"], .nav a[href="#fiveg"]').forEach(link => {
   link.addEventListener('click', () => buttons[0].click());
+});
+</script>
+
+<script>
+// Track phone-link clicks using the original Google Ads conversion action.
+function gtag_report_conversion(url) {
+  let opened = false;
+  function openPhone() {
+    if (opened) return;
+    opened = true;
+    window.location.href = url;
+  }
+  // Keep calling available even when the tracking script is blocked.
+  const fallback = window.setTimeout(openPhone, 1000);
+  try {
+    gtag('event', 'conversion', {
+      send_to: 'AW-18503392152/2wSlCIORyJwdEJi3jfdE',
+      event_callback: function () {
+        window.clearTimeout(fallback);
+        openPhone();
+      },
+      event_timeout: 1000
+    });
+  } catch (error) {
+    window.clearTimeout(fallback);
+    openPhone();
+  }
+  return false;
+}
+document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    gtag_report_conversion(link.href);
+  });
 });
 </script>
 </body>
